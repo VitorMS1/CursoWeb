@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlturaSexo</title>
+</head>
+<body>
+
+    <div>
+        <h1>Calcular a Maior Altura</h1>
+
+        <div id="entrada">
+
+            <p><input type="text" id="altura0" placeholder="Digite a altura da 1ª pessoa">
+                <select id="sexo0">
+                    <option value="male" selected>Masculino</option>
+                    <option value="Female">Feminino</option>
+                </select></p>
+
+            <p><input type="text" id="altura1" placeholder="Digite a altura da 2ª pessoa">
+                <select id="sexo1">
+                    <option value="male" selected>Masculino</option>
+                    <option value="Female">Feminino</option>
+                </select></p>
+            
+            <p><input type="text" id="altura2" placeholder="Digite a altura da 3ª pessoa">
+                <select id="sexo2">
+                    <option value="male" selected>Masculino</option>
+                    <option value="Female">Feminino</option>
+                </select></p>
+            
+            <p><input type="text" id="altura3" placeholder="Digite a altura da 4ª pessoa">
+                <select id="sexo3">
+                    <option value="male" selected>Masculino</option>
+                    <option value="Female">Feminino</option>
+                </select></p>
+            
+            <p><input type="text" id="altura4" placeholder="Digite a altura da 5ª pessoa">
+                <select id="sexo4">
+                    <option value="male" selected>Masculino</option>
+                    <option value="Female">Feminino</option>
+                </select></p>
+            
+        </div>
+
+        <button onclick="calculo.realizarCalculos();">Submit</button>
+
+    </div>
+
+
+    <script>
+
+        var calculo = new function()
+        {
+            this.realizarCalculos = function()
+            
+            {    
+                
+                var alt = [0, 0, 0, 0, 0];
+                var sexSelect = ['', '', '', '', ''];
+                var sex = ['', '', '', '', ''];
+
+                for(var i = 0; i < 5; i++)
+                {
+                    alt[i] = parseFloat(document.getElementById("altura" + i).value);
+                    sexSelect[i] = document.getElementById("sexo" + i)
+                    sex[i] = sexSelect[i].options[sexSelect[i].selectedIndex].text;
+                };
+
+                var maior;
+                maior = alt.reduce(function(x, y) {return Math.max(x, y);});
+
+                var contMale = 0;
+                var contFemale = 0;
+
+                for(var i = 0; i < 5; i++)
+                {
+
+                 if (sex[i] == "Masculino")
+                    {
+                        contMale = contMale + 1;
+                    }
+                     else
+                    {
+                        contFemale = contFemale + 1;
+                    }
+
+                    if (alt[i] == maior)
+                    {
+                        document.write("<br><h4><p> A pessoa de maior altura tem ", alt[i] + ", e é do sexo ", sex[i] + "! </h4>");
+                    }
+                };
+
+                
+                document.write("<h4> <p> Há ", contMale + " pessoa(s) do sexo masculino!</p></h4>");
+                document.write("<h4><p>Há ", contFemale + " pessoa(s) do sexo feminino! </h4>");
+            };
+
+        };
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>idade</title>
+</head>
+<body>
+    <div>
+        <h1>Identificar Maiores De Idade</h1>
+        <div id="quantidadeNotas">
+            <input type="text" id="quantidadeIdades" placeholder="Digite o número de idades">
+            <button onclick="identificador.receberQuantidade();">Enter</button>
+        </div>
+
+        <div id="identificar" style="display: none;">
+            <div id="idades"></div>
+            <button onclick="identificador.identificaIdade();"> Calcular </button>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var identificador = new function()
+        {
+            this.quantidade = 0;
+
+            this.receberQuantidade = function()
+            {
+                
+                var identificarDiv = document.getElementById("identificar");
+                identificarDiv.style.display = "block";
+                
+                var criarInput ='';
+                var idadesDiv = document.getElementById("idades");
+                this.quantidade = parseInt(document.getElementById("quantidadeIdades").value);
+                
+                for(var i = 0; i < this.quantidade; i++)
+                {
+                    criarInput += '<p> - <input type="text" placeholder="Digite a '+ (i+1) +'ª idade"  id="idade' + i + '"> <p>';
+                    idadesDiv.innerHTML = criarInput;
+                } 
+            };
+
+            this.identificaIdade = function()
+            {
+                var contMaior = 0;
+                var contMenor = 0;
+
+                for(var i = 0; i < this.quantidade; i++) {
+    
+                    if ((parseInt((document.getElementById("idade" + i).value)) >= 18))
+                    {
+                    contMaior = (contMaior + 1);
+                    }
+
+                    else 
+                    {  
+                        contMenor = (contMenor + 1);
+                    }
+                };
+               
+               document.write("<br><h4><p> Há ", contMaior + " pessoa(s) maior(es) de idade!</p></h4>");
+               document.write("<h4><p> Há ", contMenor + " pessoa(s) menor(es) de idade! </p></h4>");
+            }; 
+
+        };
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>Calcular Médias</h1>
+
+        <div id="quantidadeNotas">
+            <input type="text" id="numeroDeNotas" placeholder="Digite a quantidade de notas desejadas">
+            <button onclick="calculo.receberQuantidade();">Enter</button>
+        </div>
+
+        <div id="calcular" style="display: none;">
+            <div id="notas"></div>
+            <button onclick="calculo.calculoMedia();"> Calcular </button>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        var calculo = new function()
+        {
+            this.quantidade = 0;
+
+            this.receberQuantidade = function()
+            {
+                this.quantidade = parseInt(document.getElementById("numeroDeNotas").value);
+
+                var calcularDiv = document.getElementById("calcular");
+                calcularDiv.style.display = "block";
+
+                var criarInput ='';
+                var notasDiv = document.getElementById("notas");
+
+                for(var i = 0; i < this.quantidade; i++)
+                {
+                    criarInput += '<p> <input type="text" placeholder="Digite a '+ (i+1) +'ª nota"  id="nota' + i + '"> <p>';
+                    notasDiv.innerHTML = criarInput;
+                } 
+            };
+
+            this.calculoMedia = function()
+            {
+                var media = 0;
+
+                for(var i = 0; i < this.quantidade; i++)
+                {
+                    media += parseFloat((document.getElementById("nota" + i).value)/this.quantidade);
+                }
+               
+                document.write("<br><h4> A média das notas é: ", media + "</h4>");
+            }
+
+        };
+
+    </script>
+
+</body>
+</html>

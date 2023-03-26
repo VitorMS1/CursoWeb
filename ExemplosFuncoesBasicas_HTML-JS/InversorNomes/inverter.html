@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+        <h1>Inverter Nomes</h1>
+        (separe com: ", ") <br> <br>
+        <input type="text" id="nomes" placeholder="Digite os nomes">
+        <button onclick="receber();">Enter</button>
+    </div>
+
+    <script>
+
+        function receber()
+        {
+
+            var nomes = document.getElementById("nomes").value;
+            nomes = nomes.split(", ");
+
+            for(var i = nomes.length-1; i >= 0; i--)
+            {
+                document.write("<h3><p> ", nomes[i]+"</p></h3>");
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maior</title>
+</head>
+<body>
+    <div>
+        <h1>Verificar o Maior</h1>
+
+        <div id="entrada">            
+            <p><input type="text" id="nume0" placeholder="Digite o 1º número"></p>
+            <p><input type="text" id="nume1" placeholder="Digite o 2º número"></p>
+            <p><input type="text" id="nume2" placeholder="Digite o 3º número"></p>
+            <p><input type="text" id="nume3" placeholder="Digite o 4º número"></p>
+            <p><input type="text" id="nume4" placeholder="Digite o 5º número"></p>
+        </div>
+        <button onclick="verificar.calcularMaior();">Submit</button>
+
+    </div>
+    
+    <script>
+
+        var verificar = new function()
+        {
+            this.calcularMaior = function()
+            {
+
+                var num = [0, 0, 0, 0, 0];
+                var max;
+
+                for(var i = 0; i < 5; i++)
+                {
+                    num[i] = parseFloat(document.getElementById("nume" + i).value);
+                }
+
+                max = num.reduce(function(x, y) {return Math.max(x, y);});
+
+                document.write("<br><h4> O maior número é: ", max + "</h4>");
+            }
+
+        };
+
+    </script>
+</body>
+</html>

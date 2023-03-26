@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quadrado</title>
+</head>
+<body>
+    <div>
+        <h1>Calcular quadrado</h1>
+
+        <div id="entrada">            
+            <p><input type="text" id="nume0" placeholder="Digite o 1º número"></p>
+            <p><input type="text" id="nume1" placeholder="Digite o 2º número"></p>
+            <p><input type="text" id="nume2" placeholder="Digite o 3º número"></p>
+            <p><input type="text" id="nume3" placeholder="Digite o 4º número"></p>
+            <p><input type="text" id="nume4" placeholder="Digite o 5º número"></p>
+        </div>
+        <button onclick="verificar.calcularQuadrado();">Submit</button>
+
+    </div>
+
+    <script>
+
+        var verificar = new function()
+        {
+            this.calcularQuadrado = function()
+            {
+
+                var num = [0, 0, 0, 0, 0];
+                var quadrado = [0, 0, 0, 0, 0];
+
+                for(var i = 0; i < 5; i++)
+                {
+                    num[i] = parseFloat(document.getElementById("nume" + i).value);
+                }
+
+                for(var i = 0; i < 5; i++)
+                {
+                    quadrado[i] = Math.pow(num[i], 2);
+                    document.write("<br>O quadrado de ", num[i] + " é: ", quadrado[i]);
+                }
+
+                         /*max = num.reduce(function(a, b) {return Math.max(a, b);});
+
+                    document.write("<br><h4> O maior número é: ", max + "</h4>");
+                    }*/
+
+            };
+        };
+
+        /* var num = [2, 4, 6, 8, 10];
+        var quadrado = [0, 0, 0, 0, 0];
+
+         */ 
+
+    </script>
+</body>
+</html>

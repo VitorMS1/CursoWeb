@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Separar Datas</h1>
+        (digite no formato DD/MM/AAAA)<br><br>
+        <input type="text" id="data" placeholder="Digite a data">
+        <button onclick="receber();">Enter</button>
+    </div>
+
+    <script>
+
+        function receber()
+        {
+            var data = document.getElementById("data").value;
+            data = data.split("/");
+
+            document.write("<p> -  O dia: " ,data[0] + "</p>");
+            document.write("<p> -  O mês: " ,data[1] + "</p>");
+            document.write("<p> -  O ano: " ,data[2] + "</p>");
+        }
+
+    </script>
+
+
+</body>
+</html>
