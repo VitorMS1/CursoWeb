@@ -1,0 +1,16 @@
+Compentências desenvolvimento web:
+
+1- Js
+*node
+*nodemon
+*express
+*lodash
+
+2-Html
+
+3-Css
+
+ferramentas:
+*postman
+*VScode
+*bootstrap

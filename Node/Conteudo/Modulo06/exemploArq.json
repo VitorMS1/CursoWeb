@@ -1,0 +1,9 @@
+{
+    "BancoDeDados": {
+        "id": 1,
+        "User": "Usuário",
+        "senha": "12345",
+        "host": "localhost",
+        "port": 5432
+    }
+}
