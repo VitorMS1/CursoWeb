@@ -1,0 +1,186 @@
+<div id="tudo">
+
+    <video id="videoTeste" width="70%">
+        <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+        O seu browser não suporte vídeo.
+    </video>
+    
+    <div  id="hud" class="hudDiv">
+        
+        <div id="controlesDiv">
+            <div id="controlesDivParte">
+                <button id="botaoPlayPause">
+                    <svg class="botaoPlayPauseIcon" xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" 
+                        class="bi bi-caret-right-fill" viewBox="0 0 16 16" id="IconChangeColor" data-darkreader-inline-fill="" 
+                        style="--darkreader-inline-fill: currentColor; --darkreader-inline-fill-night-eye: currentColor;"> 
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" 
+                        id="mainIconPathAttribute" fill="#000000" data-darkreader-inline-fill="" style="--darkreader-inline-fill: hsla(0,0%,75%,1);
+                         --darkreader-inline-fill-night-eye: hsla(0,0%,0%,1);">
+                        </path> 
+                    </svg>
+                </button>
+                <div id="tempo">0:00 / 0:00</div>
+            </div>
+        </div>
+        
+        <div progressoVideo="videoTeste" class="caixaProgresso">
+            <div></div>
+        </div>
+
+    </div>
+    
+    <style>
+        #tudo
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .hudDiv
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem 0rem;
+        }
+    
+        .caixaProgresso
+        {
+            width: 97%;
+            height: 0.5rem;
+            border: solid 0.05rem gray;
+            border-radius: 10px;
+            margin: 0.2rem 0.5rem;
+        }
+    
+        .caixaProgresso > div
+        {
+            background-color: red;
+            text-align: right;
+            height: 100%;
+            width: 0%;
+        }
+    
+        #controlesDiv
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+            width: 97%;
+            height: 2rem;
+            margin: 0.2rem 0.5rem;
+        }
+
+        #controlesDivParte
+        {
+            display: flex;
+            height: 100%;
+            align-items: center;
+        }
+
+        #controlesDivParte > div, 
+        #controlesDivParte > button
+        {
+            height: 100%;
+            margin: 0.2rem 0.4rem 0.2rem 0;
+            align-items: center;
+            display: flex;
+            padding: 0;
+            cursor: default;
+        }
+
+        #controlesDivParte > button
+        {
+            width: 2rem;
+            border-radius: 50%;
+            background-color: transparent;
+            border: transparent;
+            cursor:pointer;
+            justify-content: center;
+        }
+        #controlesDivParte > button:hover
+        {
+            background-color: rgb(191, 191, 191, 0.5);
+        }
+
+        .botaoPlayPauseIcon
+        {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+    </style>
+    
+    <script>
+
+        function prepararVideo(id)
+        {
+            let hudDiv = document.getElementById("hud");
+            let videoTeste = document.getElementById(id);
+            let botaoPlayPause = document.getElementById("botaoPlayPause");
+            let tempo = document.getElementById("tempo");
+
+            const redefinirTamanho = () => hudDiv.style.width = videoTeste.clientWidth;
+            window.addEventListener('resize', redefinirTamanho);
+            redefinirTamanho();
+
+            videoTeste.oncontextmenu = () => false;
+
+            function iniciarVideo() 
+            {
+                botaoPlayPause.innerHTML = `<svg class="botaoPlayPauseIcon" xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" 
+                        class="bi bi-pause" viewBox="0 0 16 16" id="IconChangeColor" data-darkreader-inline-fill="" 
+                        style="--darkreader-inline-fill: currentColor; --darkreader-inline-fill-night-eye: currentColor;"> 
+                        <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z" 
+                        id="mainIconPathAttribute" fill="#000000" data-darkreader-inline-fill="" style="--darkreader-inline-fill: hsla(0,0%,75%,1);
+                         --darkreader-inline-fill-night-eye: hsla(0,0%,0%,1);">
+                        </path> 
+                    </svg>`;
+                    
+                medirProgressoVideo();
+                videoTeste.play();
+                botaoPlayPause.onclick = e => pararVideo();
+            }
+
+            function pararVideo()
+            {
+                botaoPlayPause.innerHTML = `<svg class="botaoPlayPauseIcon" xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" 
+                        class="bi bi-caret-right-fill" viewBox="0 0 16 16" id="IconChangeColor" data-darkreader-inline-fill="" 
+                        style="--darkreader-inline-fill: currentColor; --darkreader-inline-fill-night-eye: currentColor;"> 
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" 
+                        id="mainIconPathAttribute" fill="#000000" data-darkreader-inline-fill="" style="--darkreader-inline-fill: hsla(0,0%,75%,1);
+                         --darkreader-inline-fill-night-eye: hsla(0,0%,0%,1);">
+                        </path> 
+                    </svg>`;
+                videoTeste.pause();
+                botaoPlayPause.onclick = e => iniciarVideo();
+            }
+            
+            botaoPlayPause.onclick = e => iniciarVideo();
+
+            function medirProgressoVideo()
+            {
+                setInterval(() =>
+                {
+                    tempo.innerHTML = 
+                    `${(videoTeste.currentTime / 100).toFixed(2).toString().replace(".", ":")} / ${(videoTeste.duration / 100).toFixed(2).toString().replace(".", ":")}`;
+    
+                    let progresso = ((videoTeste.currentTime / videoTeste.duration) * 100);
+                    let barraProgresso = document.querySelector(`[progressoVideo=${id}] > div`);
+                    barraProgresso.style.width = `${progresso}%`;
+        
+               }, 250);
+            }
+        }
+
+        prepararVideo("videoTeste");
+    
+    </script>
+</div>
+<div>
+    <a href="../index.html">Voltar</a><br>
+</div>
+

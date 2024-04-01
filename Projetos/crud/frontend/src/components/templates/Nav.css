@@ -1,0 +1,44 @@
+.nav-area{
+    background-color: var(--bg-dark);
+}
+
+.menu{
+    margin-top: 2rem;
+}
+
+@media (max-width: 700px) {
+    .nav-area{
+        display: flex;
+        align-items: center;
+        height: 100px;
+    }
+
+    .menu{
+        display: flex;
+        margin: 0;
+    }
+
+    .menu a{
+        padding: 1rem;
+    }
+    
+}
+@media (max-width: 300px) {
+    .nav-area{
+        display: flex;
+        align-items: center;
+        height: 12vh;
+    }
+
+    .menu{
+        display: flex;
+        margin: 0;
+    }
+
+    .menu a{
+        padding: 0.2rem;
+        font-size: 0.8rem;
+    }
+    
+}
+

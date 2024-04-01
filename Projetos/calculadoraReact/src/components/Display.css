@@ -1,0 +1,22 @@
+.display {
+    grid-column: span 4;
+    display: grid;
+    grid-template-rows: 20px 1fr;
+    padding: 20px;
+    background-color: #0004;
+    overflow: hidden;
+}
+
+.display>div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.miniDisplay {
+    font-size: 0.8em;
+}
+
+.mainDisplay {
+    font-size: 2em;
+}

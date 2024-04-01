@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário Via Fetch</h1>
+    <form name="usuarioForm" action="formulario" method="post">
+        <input type="text" name="nome" placeholder="Nome..." />
+        <input type="text" name="sobrenome" placeholder="Sobrenome..." />
+        <button>Salvar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        document.usuarioForm.onsubmit = async e =>
+        {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            const config = 
+            {
+                method: form.method,
+                body: new URLSearchParams(formData)
+            }
+            
+            const divResult = document.querySelector('#resultado');
+            //Com promisse
+            // fetch(form.action, config)
+            //     .then(resp => resp.json())
+            //     .then(respJSON => 
+            //     {
+            //         divResult.innerHTML = JSON.stringify(respJSON);
+            //     })
+            //     .catch(e => 
+            //     {
+            //         divResult.innerHTML = e
+            //     })
+
+            //Com Async Await
+            try
+            {
+                const resp = await fetch(form.action, config);
+                const respJSON = await resp.json();
+                divResult.innerHTML = JSON.stringify(respJSON);
+
+            }
+            catch (e)
+            {
+                divResult.innerHTML = e;
+            }
+        }
+    </script>
+</body>

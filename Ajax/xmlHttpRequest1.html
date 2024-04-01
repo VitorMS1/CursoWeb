@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        function ajax (config)
+        {
+            const xhr = new XMLHttpRequest();
+            xhr.open(config.method, config.url, true);
+
+            xhr.onload = e => 
+            {
+                if((xhr.status >= 200) && (xhr.status <= 299))
+                {
+                    config.success(xhr.response);
+                }
+                else if (xhr >= 400)
+                {
+                    config.error(
+                        {
+                            status: xhr.status,
+                            text: xhr.statusText
+                        });
+                }
+            }
+            xhr.send();
+        }
+
+        ajax(
+            {
+                url:"dados/estados.json",
+                method: "GET",
+                success(response)
+                {
+                    function createTable(states)
+                    {
+                        const rows = states.map(state => 
+                        {
+                            const tdID = document.createElement('td');
+                            tdID.innerHTML = state.id;
+                            
+                            const tdName = document.createElement('td');
+                            tdName.innerHTML = state.nome;
+                            
+                            const tdAbbreviations = document.createElement('td');
+                            tdAbbreviations.innerHTML = state.sigla;
+                            
+                            const tr = document.createElement('tr');
+                            tr.appendChild(tdID);
+                            tr.appendChild(tdName);
+                            tr.appendChild(tdAbbreviations);
+                            return tr
+                        })
+                        
+                        const table = document.createElement('table');
+                        rows.forEach(row => 
+                        {
+                            table.appendChild(row);
+                            console.log(row);
+                        });
+                        document.body.appendChild(table);
+                    }
+                    
+                    const statesObject = JSON.parse(response);
+                    createTable(statesObject);
+                },
+                error(e)
+                {
+                    const message = document.createTextNode(`${e.status}: ${e.text}`)
+                }
+            }); 
+
+    </script>
+</body>

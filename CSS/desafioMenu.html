@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+
+        body
+        {
+            background-color: gray;
+            margin: 0;
+            padding: 0;
+            font-family: 'Oswald';
+        }
+
+        header 
+        {
+            display: flex;
+            background-color: #181a1b;
+            height: 5rem;
+            width: 100%;
+            position: fixed;
+            overflow: hidden;
+            border-bottom: solid 5px #4faddb;
+            justify-content: space-between;
+        }
+        
+        header > div
+        {
+            display: flex;
+
+        }
+
+        /* Logo */
+
+        .logo
+        {
+            margin: 1rem;
+        }
+        .logo, .logo img
+        {
+            height: 3rem;
+            width: 16.5rem;
+        }
+
+        @media (max-width: 780px) 
+        {
+            .logo, .logo img
+            {
+                width: 3.8rem;
+            }
+        }
+
+        /* Nav */
+        
+        .menu
+        {
+            margin: 0 1rem;
+            align-items: center;
+            display: flex;
+        }
+        .menu ul
+        {
+            align-items: center;
+            list-style-type: none;
+            display: flex;
+            padding: 0;
+        }
+
+       .menu a
+        {
+            text-decoration: none;
+            padding: 1rem;
+            margin: 0.3rem;
+            color: whitesmoke;
+        }
+
+        .menu a:hover,
+        .menu a.selected
+        {
+            background-color: #4faddb;
+            color: black;
+        }
+
+        .autenticacao
+        {
+            display: flex;
+            align-items: center;
+            margin-right: 2rem;
+        }
+
+        .autenticacao a
+        {
+            margin: 0.5rem;
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
+        .destaque
+        {
+            background-color: #f50a31;
+            padding: 0.5rem 1rem;
+            border-radius: 1.8rem;
+        }
+
+        .left-part-menu
+        {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle
+        {
+            display: none;
+            padding: 1rem;
+            margin: 1rem;
+            border: solid 1px #777;
+            border-radius: 0.5rem;
+            background-color: rgba(51, 51, 51, 0.5);
+            color: #eee;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px)
+        {
+            .menu, .autenticacao
+            {
+                display: none;
+            }
+
+            .menu-toggle
+            {
+                display: flex;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+      
+        <div>
+            <div class="logo">
+                <a href="#inicio">
+                    <picture>
+                        <source srcset="http://files.cod3r.com.br/curso-web/logo.png" media="(min-width: 780px)">
+                        <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+                    </picture>
+                </a>
+            </div>
+            
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="#inicio">Início</a>
+                    </li>
+                    <li>
+                        <a href="#cursos">Cursos</a>
+                    </li>
+                    <li>
+                        <a href="#sobre">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="left-part-menu">
+            <aside class="autenticacao">
+                <a href="#login">Login</a>
+                <a href="#registar" class="botao destaque">Registrar</a>
+            </aside>
+            
+            <button class="menu-toggle">
+                <i class="fa fa-lg fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <script>
+        window.onhashchange = function (url)
+        {
+            const antigaURL = url.oldURL.split('#')[1];
+            const novaURL = url.newURL.split('#')[1];
+            
+            const antigaLi = document.querySelector(`.menu a[href='#${antigaURL}']`);
+            const novaLi = document.querySelector(`.menu a[href='#${novaURL}']`);
+            
+            antigaLi && antigaLi.classList.remove('selected')
+            novaLi && novaLi.classList.add('selected')
+
+            console.log(novaURL, antigaURL, antigaLi, novaLi)
+            
+
+        }
+    </script>
+</body>
+
+</html>

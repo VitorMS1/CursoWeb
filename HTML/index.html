@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Titulo página -->
+    <title>Conteúdos HTML</title>
+
+    <!-- CSS diretamente -->
+    <style>
+        #conteudo 
+        {
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conteúdos HTML</h1>
+    </header>
+    <nav>
+        <a href htmlConteudos-nav = "conteudos\textos.html"> 01 - Texto </a> |
+        <a href htmlConteudos-nav = "conteudos\links.html"> 02 - Links </a> |
+        <a href htmlConteudos-nav = "conteudos\lista01.html"> 03 - Lista 1 </a> |
+        <a href = "conteudos/lista02.html"> 04 - Lista 2 </a> |
+        <a href htmlConteudos-nav = "conteudos\tabela.html"> 05 - tabela </a> |
+        <a href htmlConteudos-nav = "conteudos\formularios\formulario.html"> 06 - formulário </a> |
+        <a href htmlConteudos-nav = "conteudos\imagens.html"> 07 - Imagens </a> |
+        <a href = "conteudos\imagensSlider.html"> 08 - Imagens slider </a> |
+        <a href = "conteudos\video.html"> 09 - Vídeo </a> |
+    </nav>
+
+    <section id="conteudo"></section>
+
+    <footer>
+        <p>Conteúdos de HTML</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('[htmlConteudos-nav]').forEach(link => 
+        {
+            const conteudo = document.getElementById('conteudo')
+            
+            link.onclick = function(e) 
+            {
+                e.preventDefault()
+                fetch(link.getAttribute('htmlConteudos-nav'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>

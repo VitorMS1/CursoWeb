@@ -1,0 +1,96 @@
+<div class="jumbotron p-4 my-1 bg-light">
+    <h1 class="display-4">Formulários</h1>
+    <p class="lead m-1">Alguns importantes rescursos do Bootstrap</p>
+</div>
+
+<nav class="mb-5 px-4 py-2 bg-light" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#/paginas/bemVindo.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Formulários</li>
+    </ol>
+</nav>
+
+<p class="lead">
+    <a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_black">Documentação Oficial</a>
+</p>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="m-1">Formulário</h5>
+    </div>
+
+    <div class="card-body">
+
+      <form action="" class="container-fluid">
+
+        <div class="row">
+            <div class="col m-2">
+                <div class="form-group">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Informe o nome">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md m-2">
+                <div class="form-group">
+                    <label for="username" class="form-label">Nome de usuário</label>
+                    <input type="text" class="form-control" id="username" placeholder="Informe o seu username">
+                </div>
+            </div>
+            <div class="col-12 col-md m-2">
+                <div class="form-group">
+                    <label for="email" class="form-label">E-mail</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="email" class="form-control" id="email" placeholder="Informe o Email">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m-2">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha">
+                    <small class="form-text text-muted">
+                        Deve conter pelo menos 8 caracteres.
+                    </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m-2">
+                <div class="form-group">
+                    <label for="linguagemPreferida" class="form-label">Linguagem</label>
+                    <select id="linguagemPreferida" class="form-control">
+                        <option value="">Selecione</option>
+                        <option>JS</option>
+                        <option>Java</option>
+                        <option>Python</option>
+                        <option>Ruby</option>
+                        <option>Outra</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m-4 form-check">
+                <input type="checkbox" class="form-check-input" id="checkbox">
+                <label class="form-check-label" for="checkbox">Aceito os termos de uso.</label>
+              </div>
+        </div>
+
+        <hr>
+
+        <div class="form-row mb-0">
+            <div class="col-12 d-flex justify-content-end">
+                <button class="btn btn-primary m-2" type="submit">Salvar</button>
+                <button class="btn btn-secondary m-2" type="reset">Cancelar</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>

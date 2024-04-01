@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        input[type=file] {
+            display: flex;
+            margin: 10px;
+            padding: 40px;
+            font-size: 40px;
+            background: crimson;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <input type="file" name="arquivo"/>
+    <div class="progresso"></div>
+
+    <script>
+        function ajaxUpload(config)
+        {
+            const xhr = new XMLHttpRequest();
+
+            if(xhr.upload)
+            {
+                xhr.upload.onprogress = e =>
+                {
+                    const currentProgress = e.loaded;
+                    const totalProgress = e.total;
+                    const percentageProgress = Math.floor((currentProgress / totalProgress) * 100);
+                    config.progreess({currentProgress, totalProgress, percentageProgress});
+                };
+            };
+
+            xhr.open(config.method, config.url, true);
+            xhr.send(config.formData);
+        };
+
+        const input01 = document.querySelector('[type="file"]');
+        input01.onchange = e =>
+        {
+            const formData = new FormData();
+            formData.append(e.target.name, e.target.files[0]);
+
+            const configAjaxUpload = 
+            {
+                method: "post",
+                url: "upload",
+                formData: formData,
+                progreess(data)
+                {
+                    const progress = document.querySelector('.progresso');
+                    progress.innerHTML = JSON.stringify(data)
+                }
+            }
+
+            ajaxUpload(configAjaxUpload)
+        };
+    </script>
+</body>

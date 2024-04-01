@@ -1,0 +1,23 @@
+Compentências desenvolvidas:
+
+1- Js
+*node
+*Gulp
+*webpack
+*nodemon
+*express
+*lodash
+*jQuery
+*React - Next.js
+*Vue
+
+2-Html
+
+3-Css
+*sass
+*Bootstrap
+
+ferramentas:
+*postman
+*VScode
+

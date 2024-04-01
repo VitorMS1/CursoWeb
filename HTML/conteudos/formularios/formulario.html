@@ -1,0 +1,56 @@
+
+<form method="POST">
+    
+    <!-- input escondido -->
+    <input type="hidden" name="id" value="3">
+    <!-- input de texto -->
+    <input type="text" name="name">
+    <!-- input de senha -->
+    <input type="password" name="senha">
+    <!-- input de caixa de texto -->
+    <textarea name="bio" cols="30" rows="10"></textarea>
+
+    <!-- inputs de seleção (única pelo mesmo name) -->
+    <div>
+        <input type="radio" name="tipo" value="junior"> Junior
+        <input type="radio" name="tipo" value="pleno"> Pleno
+        <input type="radio" name="tipo" value="senior"> Senior
+    </div>
+
+    <!-- input caixa de seleção -->
+    <input type="checkbox" name="ativo"> Ativo
+
+    <!-- input de seleção dropdown -->
+    <select name="estado">
+        <option value="">Selecione</option>
+        <option value="GO">Goias</option>
+        <option value="BA">Bahia</option>
+        <option value="MG">Minas Gerais</option>
+    </select>
+
+    <!-- input lista de seleções múltiplas -->
+    <select name="interesses" multiple size="6">
+        <option value="mucisas">Músicas</option>
+        <option value="jogos">Jogos</option>
+        <option value="design">Design</option>
+        <option value="programar">Programar</option>
+        <option value="desenhar">Desenhar</option>
+    </select>
+
+    <button formaction="http://localhost:3003/usuarios">Cadastrar</button>
+    <button formaction="http://localhost:3003/usuarios/3">Atualizar</button>
+</form>
+
+<style>
+    input,
+    textarea,
+    select {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    input[type=radio],
+    input[type=checkbox] {
+        display: inline;
+    }
+</style>
