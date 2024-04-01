@@ -16,7 +16,11 @@ const conteudoSincrono = fs.readFileSync(rotaArquivo, 'utf-8');
 console.log("Sincrono:", conteudoSincrono);
 /*  -Com a função readFileSync, são passados como parâmetro primeiramente o
      endereço do arquivo desejado, e em seguida, o encoder usado no arquivo
+<<<<<<< HEAD
      (no caso o 'utf-8'); */ 
+=======
+     (no caso o 'utf-8'; */ 
+>>>>>>> 8ccc767142bec1ba064443fd9cfbfcdb6a52e78e
 
 //Assincrono
 

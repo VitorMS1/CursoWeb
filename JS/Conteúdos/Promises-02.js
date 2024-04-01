@@ -31,7 +31,11 @@ Promise.all([getClass("A"), getClass("B"), getClass("C")])
 .then(nomes => console.log(nomes))
 .catch(e => console.log(e.message))
 
+<<<<<<< HEAD
  /*-------------- Tornando mais Assincrona ------------------*/
+=======
+ /*-------------- Tornando mais sincrona ------------------*/
+>>>>>>> 8ccc767142bec1ba064443fd9cfbfcdb6a52e78e
  
  let getAlunos = async () => 
  {
@@ -43,4 +47,8 @@ Promise.all([getClass("A"), getClass("B"), getClass("C")])
     
 getAlunos()
 .then(alunos => alunos.map(aluno => aluno.nome))
+<<<<<<< HEAD
 .then(nomes => console.log(`\n----- Tornando mais assincrona -----`, nomes))
+=======
+.then(nomes => console.log(`\n----- Tornando mais sincrona -----`, nomes))
+>>>>>>> 8ccc767142bec1ba064443fd9cfbfcdb6a52e78e
